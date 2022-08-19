@@ -1,10 +1,10 @@
-Bootstrap: yum
-OSVersion: 7
-MirrorURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/os/$basearch/
-Include: yum wget git
+Bootstrap: docker
+From: centos:7
+
+
 
 %post
-yum install which  java-11-openjdk.x86_64 -y
+yum install  git which  java-11-openjdk.x86_64 -y
 
 git clone https://github.com/spring-projects/spring-petclinic.git
 cd spring-petclinic
