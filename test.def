@@ -1,18 +1,18 @@
 BootStrap: docker
-From: ubuntu:16.04
+From: centos:centos7
 
 %setup
     # copy a large directory (~70G) to container
    # cp -r /xxx/xxx ${SINGULARITY_ROOTFS}/
 
 %post
-    apt-get -y update
-    apt-get -y install fortune cowsay lolcat
+    yum install zlib -y
+    #apt-get -y install fortune cowsay lolcat
 
 %environment
     export LC_ALL=C
     #export PATH=/usr/games:$PATH
 
-%runscript
-    fortune | cowsay | lolcat
+#%runscript
+    #fortune | cowsay | lolcat
 
